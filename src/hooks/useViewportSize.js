@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 
 export default function useViewportSize() {
-  let defaultSize = window.visualViewport
-  let [size, setSize] = useState(() =>
+  const defaultSize = window.visualViewport
+  const [size, setSize] = useState(() =>
     defaultSize ? { width: 0, height: 0 } : getViewportSize()
   )
 
   useEffect(() => {
-    let onResize = () => {
+    const onResize = () => {
       setSize((size) => {
-        let newSize = getViewportSize()
+        const newSize = getViewportSize()
         if (newSize.width === size.width && newSize.height === size.height) {
           return size
         }
